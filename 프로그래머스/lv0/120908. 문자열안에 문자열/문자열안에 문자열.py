@@ -1,6 +1,8 @@
 def solution(str1, str2):
-    if (str1.find(str2) != -1):
+    try: 
+        str1.index(str2)
         answer = 1
-    else:
+    except:
         answer =2
     return answer
+            
