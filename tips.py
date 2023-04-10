@@ -3,9 +3,10 @@
 import math
 from itertools import permutations, combinations
 import heapq
-import random as r
+import random 
 from collections import Counter
 import sys
+
 a, b, c = 1, 2, 3
 print("number : ", a, b, c)
 print(a, b, c, sep=', ')
@@ -20,8 +21,7 @@ print(c+d)
 
 # 거꾸로 셀 때
 for i in range(10, 1, -1):
-    print(i)
-    # [10,9,8,7,6,5,4,3,2,1]
+    print(i) # [10,9,8,7,6,5,4,3,2,1]
 # sep -> 구분자, 글자 사이사이에 끼어넣어줌
 print('S', 'E', 'P', sep='@')
 # end -> 줄바꿈을 하지 않게됨
@@ -34,6 +34,15 @@ for i in range(5):  # [0,1,2,3,4]
     for j in range(5):
         print('j:', j, sep='', end=' ')
     print()
+
+>>> for i in range(0, 10, 2):    # 0부터 8까지 2씩 증가
+...     print('Hello, world!', i)
+
+>>> for i in range(10, 0, -1):    # 10에서 1까지 1씩 감소
+...     print('Hello, world!', i)
+
+>>> for i in reversed(range(10)):    # range에 reversed를 사용하여 숫자의 순서를 반대로 뒤집음
+...     print('Hello, world!', i)    # 9부터 0까지 10번 반복
 
 # <입력 관련>
 
@@ -55,30 +64,72 @@ print(m2)
 
 # <문자열 함수들>
 
-capitalize()  # (앞글자만)
-upper()
-lower()
-isupper(), islower(), isalpha()
-# list comprehension
+cap = string.capitalize()  # (앞글자만)
+up = string.upper() # 전부 대문자
+low = string.lower() # 전부 소문자
+isupper(), islower(), isalpha(), isdigit() # char 검증 함수
+len(string) # 문자열 길이 반환
+reverse_string = string[::-1]
+
+ # 문자열에서 특정 문자 제거
+ answer = my_string
+ for char in my_string:
+     if char in 'aeiou': # char가 'aeiou' 중 하나와 같은 문자라면 
+         answer = answer.replace(char,'') # 해당 문자를 공백으로 대체
+ return answer
+
+# 문자열에서 숫자만 추출
+answer = 0
+num = []
+for char in my_string:
+    if char.isdigit(): # 정수로 변환이 가능한지 true, false 반환
+        num.append(char) # list에 추가할 때는 append
+for number in num:
+    answer += int(number)
+return answer
+
+# 문자열의 n번째 문자 지정하기
+answer = ''
+    alphabet = 'abcdefghij'
+    for char in str(age):
+        answer += alphabet[int(char)] # 문자열도 list처럼 인덱스 지정 가능
+    return answer
+
+# list to string, string to list
+arr = list(string) # 문자열을 리스트로
+string = ''.join(arr) # 리스트를 문자열로
+
+# 리스트 관련 함수들
+
+list.index(a) # 리스트에서 처음 a가 나오는 인덱스를 반환
+reverse_arr = arr[::-1]
 
 # find, count, index..
 
 msg = "It is Time"
 
-print(msg.find('T'))
-print(msg.count('T'))
+print(msg.find('T')) # index 반환
+print(msg.count('T')) # 갯수 반환 (하나만 있는 값을 찾을 때 유용)
 # # Slice
 print(msg[:2])
 print(msg[3:5])
 
 
-# 리스트
+# 리스트 중복 제거
+unique_arr = list(set(arr))
+
+# 리스트 복사
+arr2 = arr1[:] # 보통은 이거 쓰면 된다. 
+
+# 리스트 깊은 복사
+(copy.deepcopy)
+arr2 = copy.deepcopy(arr1)
 
 # 0으로 채워진 리스트 만들기
 a = [0]*5
 print(a)
 
-# 0으로 채워진 이중리스트 만들기
+# 0으로 채워진 이중 리스트 만들기
 n = 8
 m = 10
 array = [[0]*m for _ in range(n)]
@@ -122,14 +173,13 @@ print([a-b for a, b in zip(answer, arr)])
 arr.index(찾는값)
 
 arr = [1, 2, 3, 4, 5]
-r.shuffle(arr)
+random.shuffle(arr)
 print(arr)
 arr.sort(reverse=True)
 print(arr)
 
 # Linked List
 # Node 정의
-
 
 class Node:
     def __init__(self, data, next=None):
@@ -138,24 +188,25 @@ class Node:
 
 
 node1 = Node(1)
-print(node1.data)
-print(node1.next)
+print(node1.data) # 1
+print(node1.next) # None
 node2 = Node(2)
 node1.next = node2
 # # 가장 맨 앞 Node를 알기 위해 head 지정
 head = node1
-print(node1.next.data)
-print(node1.next)
+print(node1.next.data) # 2
+print(node1.next) # node2
 
 # 튜플
+# 값이 변하지 않는 리스트
 
 x = [12, 34, 45, 67, 78]
-for i in enumerate(x):
+for i in enumerate(x): # index, value로 만들어 줌
     print(i)
 
 a = [23, 12, 36, 53, 19]
-b = (1, 2, 3, 4, 5)
-print(b[0])
+b = (1, 2, 3, 4, 5) # 튜플
+print(b[0]) # 1
 
 for x in enumerate(b):
     print(x[0], x[1])
@@ -205,21 +256,16 @@ arr.sort(key=lambda x: x[1])
 
 def plus_one(x):
     return x+1
-
-
 print(plus_one(1))
 
-
 def plus_two(x): return x+2
-
-
 print(plus_two(1))
 
 a = [1, 2, 3]
 print(list(map(plus_one, a)))
 print(list(map(lambda x: x+1, a)))
 
-# 사전자료형 hash(key, value)
+# 딕셔너리 hash(key, value)
 
 data = dict()
 data['사과'] = 'apple'
@@ -235,7 +281,12 @@ print(data.keys())
 print(data.values())
 print(list(data.keys()))
 print(list(data.values()))
-# 집합 자료형(중복x)
+
+#딕셔너리에서 key로 value 찾기
+dick = (key:value)
+print(dick.get(key)) # value
+
+# set 자료형 (중복x)
 data = set([1, 1, 1, 2, 3, 4, 4, 5, 6])
 print(data)
 
@@ -251,19 +302,19 @@ print(f"정답은{answer}입니다")
 x = 15
 y = [14, 15, 16]
 if 0 < x <= 15:
-    pass
 print(x in y)
 print(x not in y)
+
+# 변수 타입 체크
+is type(a) is int: # ==를 쓰지 않고 is 사용
 
 # 파이썬의 def 함수에는 반환타입을 명시하지 않아도 됨
 # 전역변수를 함수에 사용할때 global 붙여줌
 a = 4
 
-
 def func():
     global a
     a += 1
-
 
 for _ in range(5):
     func()
@@ -284,13 +335,11 @@ a, b, c, d = operator(6, 4)
 print(a, b, c, d)
 
 # 람다
-print((lambda a, b: a+b)(3, 7))
-array = [('홍길동', 50), ('이순신', 32), ('아무개', 74)]
-
-
 def my_key(x):
     return x[1]
 
+print((lambda a, b: a+b)(3, 7))
+array = [('홍길동', 50), ('이순신', 32), ('아무개', 74)]
 
 print(my_key(array))
 print(sorted(array, key=my_key))
