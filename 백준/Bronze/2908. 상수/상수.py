@@ -1,0 +1,7 @@
+n, m = input().split()
+num1 = int(n[::-1])
+num2 = int(m[::-1])
+if (num1 > num2):
+    print(num1)
+else:
+    print(num2)
