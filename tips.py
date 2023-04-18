@@ -95,6 +95,7 @@ for char in str(age):
 # list to string, string to list
 arr = list(string)  # 문자열을 리스트로
 string = ''.join(arr)  # 리스트를 문자열로
+arr = string.split() # 공백 단위로 문자열을 잘라 배열로 반환
 
 # 리스트 관련 함수들
 
