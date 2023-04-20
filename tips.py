@@ -143,7 +143,7 @@ for x in a:
         print(y, end=' ')
     print()
 
-# 문자열에 숫자만 추출하기
+# 문자열에서 숫자만 추출하기
 
 # 1. 모든 숫자들을 1개의 문자열로 추출 : re.sub()
 # sub()는 string에서 pattern과 일치하는 문자들을 repl로 교체합니다.
@@ -168,6 +168,12 @@ string = 'aaa1234, ^&*2233pp'
 numbers = re.findall(r'\d', string)
 print(numbers)
 # ['1', '2', '3', '4', '2', '2', '3', '3']
+
+# 정수 배열을 문자열로 만들기
+
+int_arr = [1,2,3,4]
+string = ''.join(map(str, int_arr))
+# 1234
 
 # i 뺀 for 단순 반복문
 for _ in range(5):
