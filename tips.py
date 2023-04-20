@@ -143,6 +143,31 @@ for x in a:
         print(y, end=' ')
     print()
 
+# 문자열에 숫자만 추출하기
+
+# 1. 모든 숫자들을 1개의 문자열로 추출 : re.sub()
+# sub()는 string에서 pattern과 일치하는 문자들을 repl로 교체합니다.
+
+import re
+
+string = 'aaa1234, ^&*2233pp'
+numbers = re.sub(r'[^0-9]', '', string)
+print(numbers)
+# 12342233
+
+# 2.연속된 숫자들을 추출하여 List로 리턴 : re.findall()
+# re.findall(pattern, string)은 string에서 pattern에 해당하는 내용들을 찾아서 리스트로 리턴합니다. r'\d+'는 1회 이상 반복되는 숫자들에 대한 패턴을 의미합니다. 다음과 같이 연속된 숫자들을 하나의 Integer로 추출합니다.
+string = 'aaa1234, ^&*2233pp'
+numbers = re.findall(r'\d+', string)
+print(numbers)
+#['1234', '2233']
+
+# 3.숫자 추출 및 낱개로 분리하여 List로 리턴 : re.findall()
+# r'\d'는 1개의 숫자를 의미합니다. 1개 이상의 반복을 의미하는 +가 제외된 패턴으로 패턴을 찾으면, 숫자 1개 단위로 추출되어 리스트에 저장됩니다.
+string = 'aaa1234, ^&*2233pp'
+numbers = re.findall(r'\d', string)
+print(numbers)
+# ['1', '2', '3', '4', '2', '2', '3', '3']
 
 # i 뺀 for 단순 반복문
 for _ in range(5):
