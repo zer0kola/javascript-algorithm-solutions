@@ -108,9 +108,13 @@ msg = "It is Time"
 
 print(msg.find('T'))  # index 반환
 print(msg.count('T'))  # 갯수 반환 (하나만 있는 값을 찾을 때 유용)
-# # Slice
-print(msg[:2])
-print(msg[3:5])
+# # Slice (문자열 자르기)
+string[start:end:step]
+
+print(msg[:2]) # 앞에서 2글자만큼 자르기 (It)
+print(msg[3:8]) # index 3부터 index 7까지 자르기 (is Ti)
+print(msg[-2:]) # 뒤에서 2글자만큼 자르기 (me)
+print(msg[-8:-3]) # index -8부터 index -3까지 자르기 (t is T)
 
 
 # 리스트 중복 제거
