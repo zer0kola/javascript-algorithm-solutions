@@ -97,25 +97,23 @@ arr = list(string)  # 문자열을 리스트로
 string = ''.join(arr)  # 리스트를 문자열로
 arr = string.split() # 공백 단위로 문자열을 잘라 배열로 반환
 
-# 리스트 관련 함수들
-
-list.index(a)  # 리스트에서 처음 a가 나오는 인덱스를 반환
-reverse_arr = arr[::-1]
-
-# find, count, index..
-
+# 문자열
 msg = "It is Time"
 
 print(msg.find('T'))  # index 반환
 print(msg.count('T'))  # 갯수 반환 (하나만 있는 값을 찾을 때 유용)
-# # Slice (문자열 자르기)
 string[start:end:step]
 
+# slice
 print(msg[:2]) # 앞에서 2글자만큼 자르기 (It)
 print(msg[3:8]) # index 3부터 index 7까지 자르기 (is Ti)
 print(msg[-2:]) # 뒤에서 2글자만큼 자르기 (me)
 print(msg[-8:-3]) # index -8부터 index -3까지 자르기 (t is T)
+reverse_msg = msg[::-1] # 문자열 뒤집기
 
+# 리스트 관련 함수들
+
+list.index(a)  # 리스트에서 처음 a가 나오는 인덱스를 반환
 
 # 리스트 중복 제거
 unique_arr = list(set(arr))
