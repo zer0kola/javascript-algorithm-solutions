@@ -1,5 +1,6 @@
-# PythonPS
-Python PS source code
+# JavaScript PS
+
+JavaScript PS source code
 
 ## 백준
 
