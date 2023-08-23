@@ -9,8 +9,11 @@
 
 class Queue {
   constructor() {
+    // 자료들을 담는 dictionary
     this.queue = {};
+    // queue의 맨 앞을 가리키는 front
     this.front = 0;
+    // queue의 맨 뒤를 가리키는 rear
     this.rear = 0;
   }
 
@@ -22,9 +25,7 @@ class Queue {
 
   dequeue() {
     // queue에서 item을 뺄 때는 front를 사용한다.
-    if (this.front === this.rear) {
-      return;
-    }
+    if (this.front === this.rear) return;
 
     const item = this.queue[this.front];
     delete this.queue[this.front];
