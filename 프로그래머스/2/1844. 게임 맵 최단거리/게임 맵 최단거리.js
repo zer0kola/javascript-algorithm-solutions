@@ -1,20 +1,44 @@
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
 class Queue {
-    constructor() {
-        this.items = [];
-        this.head = 0;
+  constructor() {
+    this.head = null; // 큐의 첫 번째 요소 (dequeue할 위치)
+    this.tail = null; // 큐의 마지막 요소 (enqueue할 위치)
+    this.size = 0;
+  }
+
+  push(item) {
+    const newNode = new Node(item);
+    if (!this.head) {
+      this.head = this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
     }
-    
-    push(item) {
-        this.items.push(item);
-    }
-    
-    pop() {
-        return this.items[this.head++];
-    }
-    
-    isEmpty () {
-        return this.head === this.items.length;
-    }
+    this.size++;
+  }
+
+  pop() {
+    if (!this.head) return null; // 큐가 비어있으면 null 반환
+    const value = this.head.value;
+    this.head = this.head.next;
+    if (!this.head) this.tail = null; // 마지막 요소를 제거했다면 tail도 초기화
+    this.size--;
+    return value;
+  }
+
+  isEmpty() {
+    return this.size === 0;
+  }
+
+  peek() {
+    return this.head ? this.head.value : null;
+  }
 }
 
 function solution(maps) {
@@ -52,7 +76,7 @@ function solution(maps) {
                     distance[nextX][nextY] = distance[x][y] + 1; // 거리 업데이트
                     queue.push([nextX, nextY]);
 
-                    // 목표 지점에 도달하면 즉시 반환
+                    //  BFS 도중 처음 목표 지점에 도착하면 그 거리가 최단거리
                     if (nextX === n - 1 && nextY === m - 1) {
                         return distance[nextX][nextY];
                     }
