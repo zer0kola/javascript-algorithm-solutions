@@ -9,7 +9,7 @@ let rPower = BigInt(1);
 
 for (let i = 0; i < arr.length; i++) {
   hash = (hash + arr[i] * rPower) % M;
-  rPower = (rPower * r) % M;
+  rPower = (rPower * r);
 }
 
 console.log(hash.toString());
